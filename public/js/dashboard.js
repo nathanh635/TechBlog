@@ -45,13 +45,17 @@ document
   .querySelector('.post-list')
   .addEventListener('click', delButtonHandler);
 
+  document
+  .querySelector('.new-comment-form')
+  .addEventListener('submit', newCommentHandler);
+
   const newCommentHandler = async (event) => {
     event.preventDefault();
   
     const comment = document.querySelector('#comment').value.trim();
-  
+    console.log(comment)
     if (comment) {
-      console.log(comment)
+  
       const response = await fetch(`/post/${id}`, {
         method: 'POST',
         body: JSON.stringify({ comment }),
@@ -67,23 +71,4 @@ document
       }
     }
   };
-  
-  // const delButtonHandler = async (event) => {
-  //   if (event.target.hasAttribute('data-id')) {
-  //     const id = event.target.getAttribute('data-id');
-  
-  //     const response = await fetch(`/api/posts/${id}`, {
-  //       method: 'DELETE',
-  //     });
-  
-  //     if (response.ok) {
-  //       document.location.replace('/dashboard');
-  //     } else {
-  //       alert('Failed to delete post');
-  //     }
-  //   }
-  // };
-  
-  document
-    .querySelector('.new-comment-form')
-    .addEventListener('submit', newCommentHandler);
+
