@@ -51,7 +51,8 @@ document
     const comment = document.querySelector('#comment').value.trim();
   
     if (comment) {
-      const response = await fetch(`/api/posts/${id}`, {
+      console.log(comment)
+      const response = await fetch(`/post/${id}`, {
         method: 'POST',
         body: JSON.stringify({ comment }),
         headers: {
@@ -60,7 +61,7 @@ document
       });
   
       if (response.ok) {
-        document.location.replace(`/posts/${id}`);
+        document.location.replace(`/post/${id}`);
       } else {
         alert('Failed to post comment');
       }

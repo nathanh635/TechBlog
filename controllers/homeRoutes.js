@@ -33,11 +33,11 @@ router.get('/post/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'], 
+          attributes: ['name']
         },
       ],
     });
-    const commentData = await Comment.findAll({
+    const commentData = await Comment.findAll(req.params.id, {
       where: 
         {
           post_id: req.params.id,
@@ -46,10 +46,10 @@ router.get('/post/:id', async (req, res) => {
     });
 
     const post = postData.get({ plain: true });
-    const comment = commentData.get({ plain: true });
+    const comments = commentData.get({ plain: true });
 
     res.render('post', {
-      ...post, comment,
+      ...post, comments,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -61,6 +61,7 @@ router.post('/post/:id', withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create({
       ...req.body,
+      post_id: req.params.id,
       user_id: req.session.user_id,
     });
 
