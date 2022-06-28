@@ -1,0 +1,78 @@
+* {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header {
+  background-color: rgb(24, 24, 24);
+}
+
+.no-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color:#e1ffb9;
+  text-decoration: none;
+  font-size: 100%;
+}
+
+.no-button:hover {
+  color: #065b83;
+  text-decoration: underline;
+}
+
+.dollar-amount {
+  color: #056605;
+  font-weight: bold;
+  margin-left: -5px;
+}
+
+h1 {
+  color: rgb(24, 24, 24);
+  background-color: #e1ffb9;
+  font-weight: bolder;
+  border-radius: 10px;
+  box-shadow: 10px 10px #bfcfaa;
+  padding: 15px;
+  margin: 15px;
+  display: block;
+}
+
+nav {
+  color:#e1ffb9;
+  background-color: rgb(24, 24, 24);
+}
+
+body {
+  background-color: #e1ffb9;
+}
+
+header > a {
+  color:#e1ffb9;
+}
+
+.navbar {
+  color:#e1ffb9;
+  display: block;
+  padding: 15px;
+}
+
+.postBox {
+  border: 2px solid rgb(24, 24, 24);
+  border-radius: 10px;
+  margin: 15px;
+}
+
+/* .postContents {
+  padding: 10px;
+} */
+
+.postTitle {
+  color:#e1ffb9;
+  background-color: rgb(24, 24, 24);
+  
+}
+
+.postText {
+  padding: 15px;
+}
