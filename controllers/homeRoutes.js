@@ -27,13 +27,12 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
         {
-          model: User,
-          attributes: ['name']
+          all:true, nested: true,
         },
       ],
     });
@@ -44,9 +43,12 @@ router.get('/post/:id', async (req, res) => {
 
     //     },
     // });
+    console.log(postData);
 
     const post = postData.get({ plain: true });
     // const comments = commentData.get({ plain: true });
+
+
 
     res.render('post', {
       ...post, 
@@ -56,6 +58,8 @@ router.get('/post/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
 
 router.post('/post/:id', withAuth, async (req, res) => {
   try {
