@@ -45,30 +45,41 @@ document
   .querySelector('.post-list')
   .addEventListener('click', delButtonHandler);
 
-  document
-  .querySelector('.new-comment-form')
-  .addEventListener('submit', newCommentHandler);
 
-  const newCommentHandler = async (event) => {
-    event.preventDefault();
+
+  // const updateButtonHandler = async (event) => {
+  //   event.preventDefault();
+  //   if (event.target.hasAttribute('data-id')) {
+  //     const id = event.target.getAttribute('data-id');
+
+  //     let label1 = document.querySelector("h3")
+  //     label1.textContent = "Update post:"
+  //     let button1 = document.querySelector(".btn-primary")
+  //    // button1.style display:none
+
   
-    const comment = document.querySelector('#comment').value.trim();
-    console.log(comment)
-    if (comment) {
   
-      const response = await fetch(`/post/${id}`, {
-        method: 'POST',
-        body: JSON.stringify({ comment }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+  //   const comment = document.querySelector('#comment').value.trim();
+
+  //   if (text && title) {
   
-      if (response.ok) {
-        document.location.replace(`/post/${id}`);
-      } else {
-        alert('Failed to post comment');
-      }
-    }
-  };
+  //     const response = await fetch(`/post/${id}`, {
+  //       method: 'PUT',
+  //       body: JSON.stringify({ comment }),
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //     });
+  
+  //     if (response.ok) {
+  //       document.location.replace(`/post/${id}`);
+  //     } else {
+  //       alert('Failed to post comment');
+  //     }
+  //   }
+  // };
+
+  // document
+  // .querySelector('.post-list')
+  // .addEventListener('submit', updateButtonHandler);
 
